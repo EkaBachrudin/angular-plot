@@ -181,13 +181,13 @@ export class App {
   salesOption= {
     marks: [
       () => htl.svg`<defs>
-        <linearGradient id="lineGradient" gradientTransform="rotate(90)">
-          <stop offset="20%" stop-color="#007AFF" stop-opacity="0.8" />
-          <stop offset="100%" stop-color="#007AFF" stop-opacity="0.3" />
+        <linearGradient id="salesGradient" gradientTransform="rotate(90)">
+          <stop offset="20%" stop-color="#007AFF" stop-opacity="0.3" />
+          <stop offset="100%" stop-color="#007AFF" stop-opacity="0.1" />
         </linearGradient>
       </defs>`,
-      Plot.areaY(this.sales, {x: "Amount", y: "Percent", fill: "url(#lineGradient)", curve: "catmull-rom"}),
-      Plot.lineY(this.sales, {x: "Amount", y: "Percent", stroke: "#007AFF", strokeWidth: 2.5, curve: "catmull-rom"}),
+      Plot.areaY(this.sales, {x: "Amount", y: "Percent", fill: "url(#salesGradient)", curve: "linear"}),
+      Plot.lineY(this.sales, {x: "Amount", y: "Percent", stroke: "#007AFF", strokeWidth: 2.5, curve: "linear"}),
       Plot.dot(this.sales.filter((_, i) => i % 1 === 0), {x: "Amount", y: "Percent", fill: "#007AFF", r: 4}),
       Plot.ruleY([0])
     ],
