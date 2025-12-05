@@ -1,5 +1,10 @@
 # PlotChart
 
+<p align="center">
+  <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular" width="100" style="margin-right: 20px;"/>
+  <img src="https://observablehq.com/plot/plot.svg" alt="Observable Plot" width="100"/>
+</p>
+
 This is a **learning and experimentation project** focused on exploring the **Observable Plot library** within an **Angular framework**. The project serves as a hands-on trial and error environment for implementing various data visualizations using Observable Plot's capabilities.
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.6.
