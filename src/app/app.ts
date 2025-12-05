@@ -144,4 +144,57 @@ export class App {
     x: {label: "Trading Date"},
     title: "AAPL Daily Stock Price with HTL SVG Effects"
   };
+
+
+  //SALES DATA - 50 entries with varied values
+  sales = [
+    {Amount: 1200, Percent: 15},
+    {Amount: 3400, Percent: 28},
+    {Amount: 5600, Percent: 42},
+    {Amount: 7800, Percent: 35},
+    {Amount: 9200, Percent: 58},
+    {Amount: 11500, Percent: 67},
+    {Amount: 13800, Percent: 72},
+    {Amount: 16100, Percent: 40},
+    {Amount: 18300, Percent: 50},
+    {Amount: 20600, Percent: 60},
+    {Amount: 22800, Percent: 65},
+    {Amount: 25100, Percent: 92},
+    {Amount: 27300, Percent: 87},
+    {Amount: 29600, Percent: 94},
+    {Amount: 31800, Percent: 50},
+    {Amount: 34100, Percent: 96},
+    {Amount: 36300, Percent: 93},
+    {Amount: 38600, Percent: 70},
+    {Amount: 40800, Percent: 95},
+    {Amount: 43100, Percent: 99},
+    {Amount: 45300, Percent: 97},
+    {Amount: 47600, Percent: 100},
+    {Amount: 49800, Percent: 94},
+    {Amount: 52100, Percent: 88},
+    {Amount: 54300, Percent: 80},
+    {Amount: 56600, Percent: 30},
+    {Amount: 58800, Percent: 50},
+    {Amount: 60000, Percent: 20}
+  ]
+
+  salesOption= {
+    marks: [
+      () => htl.svg`<defs>
+        <linearGradient id="lineGradient" gradientTransform="rotate(90)">
+          <stop offset="20%" stop-color="#007AFF" stop-opacity="0.8" />
+          <stop offset="100%" stop-color="#007AFF" stop-opacity="0.3" />
+        </linearGradient>
+      </defs>`,
+      Plot.areaY(this.sales, {x: "Amount", y: "Percent", fill: "url(#lineGradient)", curve: "catmull-rom"}),
+      Plot.lineY(this.sales, {x: "Amount", y: "Percent", stroke: "#007AFF", strokeWidth: 2.5, curve: "catmull-rom"}),
+      Plot.dot(this.sales.filter((_, i) => i % 1 === 0), {x: "Amount", y: "Percent", fill: "#007AFF", r: 4}),
+      Plot.ruleY([0])
+    ],
+    width: 2000,
+    height: 500,
+    y: {grid: true, label: "Percent"},
+    x: {label: "Amount"},
+    title: "Sales Details"
+  };
 }
