@@ -1,5 +1,7 @@
 # PlotChart
 
+This is a **learning and experimentation project** focused on exploring the **Observable Plot library** within an **Angular framework**. The project serves as a hands-on trial and error environment for implementing various data visualizations using Observable Plot's capabilities.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.6.
 
 ## Development server
