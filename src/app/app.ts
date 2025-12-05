@@ -293,4 +293,52 @@ export class App {
     x: {label: "Month"},
     title: "Revenue"
   };
+
+
+  analytics1 = [
+    {Year: 2015, Percent: 0},
+    {Year: 2016, Percent: 25},
+    {Year: 2017, Percent: 50},
+    {Year: 2018, Percent: 75},
+    {Year: 2019, Percent: 100},
+    {Year: 2020, Percent: 0},
+    {Year: 2021, Percent: 25},
+    {Year: 2022, Percent: 50},
+    {Year: 2023, Percent: 75},
+    {Year: 2024, Percent: 100}
+  ]
+
+  analytics2 = [
+    {Year: 2015, Percent: 25},
+    {Year: 2016, Percent: 40},
+    {Year: 2017, Percent: 55},
+    {Year: 2018, Percent: 40},
+    {Year: 2019, Percent: 25},
+    {Year: 2020, Percent: 25},
+    {Year: 2021, Percent: 40},
+    {Year: 2022, Percent: 55},
+    {Year: 2023, Percent: 40},
+    {Year: 2024, Percent: 25}
+  ]
+
+  analyticsOption = {
+    marks: [
+      // Product A line with coral red color
+      // Plot.areaY(this.analytics1, {x: "Year", y: "Percent", fill: "url(#analytics1Gra)", curve: "catmull-rom"}),
+      Plot.lineY(this.analytics1, {x: "Year", y: "Percent", stroke: "#00B69B", strokeWidth: 3, curve: "catmull-rom"}),
+      Plot.dot(this.analytics1, {x: "Year", y: "Percent", fill: "#00B69B", r: 5}),
+
+      // Product B line with turquoise color
+      // Plot.areaY(this.analytics2, {x: "Year", y: "Percent", fill: "url(#analytics2Gra)", curve: "catmull-rom"}),
+      Plot.lineY(this.analytics2, {x: "Year", y: "Percent", stroke: "#4880FF", strokeWidth: 3, curve: "catmull-rom"}),
+      Plot.dot(this.analytics2, {x: "Year", y: "Percent", fill: "#4880FF", r: 5}),
+
+      Plot.ruleY([0])
+    ],
+    width: 500,
+    height: 228,
+    y: {grid: true, label: "Sales (Units)"},
+    x: {label: "Month"},
+    title: "Revenue"
+  };
 }
