@@ -197,4 +197,100 @@ export class App {
     x: {label: "Amount"},
     title: "Sales Details"
   };
+
+  // Dataset for first line - Product A performance over months
+ salesA = [
+    {Amount: 1200, Percent: 15},
+    {Amount: 3400, Percent: 28},
+    {Amount: 5600, Percent: 42},
+    {Amount: 7800, Percent: 35},
+    {Amount: 9200, Percent: 58},
+    {Amount: 11500, Percent: 67},
+    {Amount: 13800, Percent: 72},
+    {Amount: 16100, Percent: 40},
+    {Amount: 18300, Percent: 50},
+    {Amount: 20600, Percent: 60},
+    {Amount: 22800, Percent: 65},
+    {Amount: 25100, Percent: 92},
+    {Amount: 27300, Percent: 87},
+    {Amount: 29600, Percent: 94},
+    {Amount: 31800, Percent: 50},
+    {Amount: 34100, Percent: 96},
+    {Amount: 36300, Percent: 50},
+    {Amount: 38600, Percent: 70},
+    {Amount: 40800, Percent: 20},
+    {Amount: 43100, Percent: 10},
+    {Amount: 45300, Percent: 20},
+    {Amount: 47600, Percent: 30},
+    {Amount: 49800, Percent: 4},
+    {Amount: 52100, Percent: 88},
+    {Amount: 54300, Percent: 80},
+    {Amount: 56600, Percent: 30},
+    {Amount: 58800, Percent: 50},
+    {Amount: 60000, Percent: 20}
+  ]
+
+  // Dataset for second line - Product B performance over months
+  salesB = [
+    {Amount: 1200, Percent: 15},
+    {Amount: 3400, Percent: 28},
+    {Amount: 5600, Percent: 80},
+    {Amount: 7800, Percent: 35},
+    {Amount: 9200, Percent: 58},
+    {Amount: 11500, Percent: 67},
+    {Amount: 13800, Percent: 70},
+    {Amount: 16100, Percent: 40},
+    {Amount: 18300, Percent: 50},
+    {Amount: 20600, Percent: 50},
+    {Amount: 22800, Percent: 65},
+    {Amount: 25100, Percent: 92},
+    {Amount: 27300, Percent: 20},
+    {Amount: 29600, Percent: 50},
+    {Amount: 31800, Percent: 40},
+    {Amount: 34100, Percent: 40},
+    {Amount: 36300, Percent: 70},
+    {Amount: 38600, Percent: 70},
+    {Amount: 40800, Percent: 50},
+    {Amount: 43100, Percent: 40},
+    {Amount: 45300, Percent: 30},
+    {Amount: 47600, Percent: 33},
+    {Amount: 49800, Percent: 34},
+    {Amount: 52100, Percent: 35},
+    {Amount: 54300, Percent: 30},
+    {Amount: 56600, Percent: 30},
+    {Amount: 58800, Percent: 50},
+    {Amount: 60000, Percent: 20}
+  ]
+
+  // Combined chart with 2 lines in different colors
+  dualLineChartOptions = {
+    marks: [
+      () => htl.svg`<defs>
+        <linearGradient id="gradientA" gradientTransform="rotate(90)">
+          <stop offset="20%" stop-color="#DBA5FF" stop-opacity="0.9" />
+          <stop offset="100%" stop-color="#DBA5FF" stop-opacity="0.4" />
+        </linearGradient>
+        <linearGradient id="gradientB" gradientTransform="rotate(90)">
+          <stop offset="20%" stop-color="#ff8f6dff" stop-opacity="0.9" />
+          <stop offset="100%" stop-color="#ff8f6dff" stop-opacity="0.4" />
+        </linearGradient>
+      </defs>`,
+      // Product A line with coral red color
+      Plot.areaY(this.salesA, {x: "Amount", y: "Percent", fill: "url(#gradientA)", curve: "catmull-rom"}),
+      // Plot.lineY(this.salesA, {x: "Amount", y: "Percent", stroke: "#c062ffff", strokeWidth: 3, curve: "catmull-rom"}),
+      // Plot.dot(this.salesA, {x: "Amount", y: "Percent", fill: "#c062ffff", r: 5}),
+
+      // Product B line with turquoise color
+      Plot.areaY(this.salesB, {x: "Amount", y: "Percent", fill: "url(#gradientB)", curve: "catmull-rom"}),
+      // Plot.lineY(this.salesB, {x: "Amount", y: "Percent", stroke: "#ff6e41ff", strokeWidth: 3, curve: "catmull-rom"}),
+      // Plot.dot(this.salesB, {x: "Amount", y: "Percent", fill: "#ff6a3cff", r: 5}),
+
+      Plot.ruleY([0])
+    ],
+    width: 2000,
+    height: 500,
+    y: {grid: true, label: "Sales (Units)"},
+    x: {label: "Month"},
+    title: "Revenue"
+  };
 }

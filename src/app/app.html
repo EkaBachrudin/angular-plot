@@ -22,7 +22,18 @@
     </div>
   </section>
 
-  
+  <!-- New Dual Line Chart -->
+  <section class="chart-section">
+    <h2>Product Comparison Chart</h2>
+    <div class="chart-container">
+      <app-plot-figure [options]="dualLineChartOptions"></app-plot-figure>
+    </div>
+    <div class="chart-info">
+      <p>Monthly sales comparison between Product A (coral red) and Product B (turquoise) showing different performance trends over the year.</p>
+    </div>
+  </section>
+
+
   <!-- Original Penguins Chart -->
   <section class="chart-section">
     <h1>Penguins Dataset</h1>
